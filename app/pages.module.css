@@ -1,0 +1,144 @@
+/* Estilos compartidos por Encargos, Tienda y Club */
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-8) var(--space-4);
+}
+
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-8) var(--space-4);
+}
+
+.mediaArt {
+  position: absolute;
+  inset: 12% 0 -4%;
+  display: flex;
+  justify-content: center;
+}
+
+.mediaArt svg {
+  width: auto;
+  height: 100%;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.step {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  padding: var(--space-4);
+  border: var(--border);
+}
+
+.stepNum {
+  flex: 0 0 auto;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--obsidian);
+  color: var(--bone);
+  border-radius: var(--radius-round);
+  font-family: var(--font-mono);
+  font-size: var(--price-size);
+  font-weight: var(--weight-bold);
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-block: var(--space-8);
+  padding: var(--space-8);
+  background: var(--sand);
+  border: var(--border);
+  box-shadow: var(--shadow-hard);
+}
+
+.cta p {
+  max-width: var(--prose-max);
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  border-top: var(--border);
+}
+
+.faq details {
+  border-bottom: var(--border-thin);
+}
+
+.faq summary {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-0);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  font-family: var(--font-mono);
+  font-size: var(--heading-size);
+  line-height: var(--label-line);
+}
+
+.faq details[open] summary::after {
+  content: "−";
+}
+
+.faq details p {
+  padding-bottom: var(--space-4);
+  max-width: var(--prose-max);
+}
+
+@media (max-width: 1199px) {
+  .grid4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1023px) {
+  .grid3,
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .grid4 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cta {
+    padding: var(--space-4);
+  }
+}
+
+.mediaSticker {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+}

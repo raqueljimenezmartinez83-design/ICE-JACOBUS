@@ -1,0 +1,165 @@
+/* Obrador + Novedades, como hero lateral de titulares */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.aside {
+  padding-top: var(--space-8);
+}
+
+/* ---------- Familias ---------- */
+.families {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+/* ---------- Club: neón rosa + un pastel (damero menta) ---------- */
+.club {
+  margin-block: var(--space-8);
+  background: var(--grass);
+  border-block: var(--border);
+}
+
+.clubInner {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: var(--space-8);
+  align-items: stretch;
+}
+
+.clubCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding-block: var(--space-8);
+  color: var(--obsidian);
+}
+
+.perks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-weight: var(--weight-medium);
+}
+
+.perks li::before {
+  content: "✶ ";
+}
+
+.clubCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding-top: var(--space-2);
+}
+
+.clubArt {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-inline: var(--border);
+  min-height: calc(var(--space-8) * 8);
+}
+
+.clubScoop {
+  position: relative;
+  width: var(--hero-art-size);
+  max-width: 80%;
+  padding: var(--space-4);
+  background: var(--bone);
+  border: var(--border);
+  box-shadow: var(--shadow-hard);
+}
+
+/* ---------- Fanzine ---------- */
+.zine {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.zineSide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.zineSide > * + * {
+  padding-top: var(--space-4);
+  border-top: var(--border-thin);
+}
+
+/* ---------- Marca ---------- */
+.brand {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-8);
+  align-items: end;
+  padding-block: var(--space-8);
+  border-top: var(--border);
+}
+
+.brandInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.hours {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.hours div {
+  display: grid;
+  grid-template-columns: calc(var(--space-8) * 3) 1fr;
+  gap: var(--space-4);
+  align-items: baseline;
+  padding-bottom: var(--space-2);
+  border-bottom: var(--border-thin);
+}
+
+@media (max-width: 1199px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .aside {
+    padding-top: var(--space-0);
+  }
+
+  .families {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .clubInner,
+  .zine,
+  .brand {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+
+  .clubCopy {
+    padding-bottom: var(--space-0);
+  }
+
+  .clubArt {
+    min-height: calc(var(--space-8) * 6);
+    margin-bottom: var(--space-8);
+    border: var(--border);
+  }
+
+  .clubScoop {
+    width: var(--profile-art-size);
+  }
+}

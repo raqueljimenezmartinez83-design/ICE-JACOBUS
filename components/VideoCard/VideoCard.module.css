@@ -1,0 +1,106 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: var(--video-card-width);
+  background: var(--bone);
+  border: var(--border);
+  box-shadow: var(--shadow-hard);
+}
+
+.card[data-wide="true"] {
+  width: 100%;
+}
+
+.card:focus-within {
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+.thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-bottom: var(--border);
+  overflow: hidden;
+}
+
+.art {
+  position: absolute;
+  inset: 12% 0 -4%;
+  display: flex;
+  justify-content: center;
+}
+
+.play {
+  position: absolute;
+  left: var(--space-2);
+  bottom: var(--space-2);
+  width: var(--play-size);
+  height: var(--play-size);
+  transform: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--grass);
+  border: var(--border);
+  border-radius: var(--radius-round);
+  box-shadow: var(--shadow-hard);
+  transition: transform var(--duration-fast) var(--ease);
+}
+
+.play svg {
+  width: var(--icon-size);
+  fill: var(--obsidian);
+}
+
+.card:hover .play {
+  transform: scale(1.1);
+}
+
+.duration {
+  position: absolute;
+  right: var(--space-2);
+  bottom: var(--space-2);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+}
+
+.title {
+  font-size: var(--heading-s-size);
+  line-height: var(--heading-s-line);
+}
+
+.link {
+  color: var(--obsidian);
+  text-decoration: none;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.link:focus-visible {
+  outline: none;
+}
+
+/* La ilustración se ajusta por altura para que nunca se corte */
+.art svg {
+  width: auto;
+  height: 100%;
+}
+
+.img {
+  object-fit: cover;
+  transition: transform var(--duration-base) var(--ease);
+}
+
+.card:hover .img {
+  transform: scale(1.05);
+}

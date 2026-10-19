@@ -1,0 +1,191 @@
+/* ==========================================================================
+   Jacous Ice Cream — tokens del sistema de diseño (fuente de verdad)
+   Tema "Bloques": estética de mundo de bloques y píxeles.
+   Ningún color, tamaño, radio ni sombra se escribe fuera de este archivo.
+   ========================================================================== */
+
+:root {
+  /* ---------- Color · tema "Bloques" ---------- */
+  --bone: #f4efe2; /* fondo de página (abedul claro) */
+  --obsidian: #1c1625; /* texto, bloques oscuros, bordes */
+  --stone-dark: #57525c; /* texto secundario: 6,6:1 sobre bone */
+
+  /* Acentos (los antiguos neones): solo como fondo, nunca como texto */
+  --grass: #6abe30; /* marca, CTA principal · texto obsidian 7,6:1 */
+  --gold: #fcd240; /* NUEVO, destacados · texto obsidian 12:1 */
+  --diamond: #4fe3e6; /* activo, foco, temporada · texto obsidian 11:1 */
+  --redstone: #b8322a; /* EN DIRECTO · el texto encima es bone (5,2:1) */
+
+  /* Tonos claros (los antiguos pasteles) */
+  --leaf: #cfe9b8;
+  --amethyst: #ddd1f6;
+  --sand: #f3dcae;
+
+  /* Tonos de textura: solo para el patrón de bloques, nunca para texto */
+  --grass-dark: #4a8f22;
+  --leaf-dark: #b3d998;
+  --amethyst-dark: #c6b3ee;
+  --sand-dark: #e6c88d;
+  --dirt: #8b5a3c;
+  --dirt-dark: #6b4329;
+
+  /* Bisel de bloque: luz arriba-izquierda, sombra abajo-derecha */
+  --bevel-light: rgba(255, 255, 255, 0.45);
+  --bevel-dark: rgba(0, 0, 0, 0.22);
+
+  /* Colores de familia */
+  --family-cremas: var(--sand);
+  --family-sorbetes: var(--leaf);
+  --family-veganos: var(--amethyst);
+  --family-punk: var(--gold);
+
+  /* ---------- Tipografía ---------- */
+  --font-display: var(--font-pixelify), "Courier New", monospace;
+  --font-sans: var(--font-nunito), system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+
+  --display-xl-size: 72px;
+  --display-xl-line: 0.95;
+  --display-xl-tracking: 0;
+  --display-l-size: 40px;
+  --display-l-line: 44px;
+  --display-s-size: 28px; /* display-l reducido: título de la subnavegación */
+  --display-s-line: 32px;
+  --heading-size: 22px;
+  --heading-line: 28px;
+  --heading-tracking: -0.01em;
+  --heading-s-size: 18px; /* heading reducido: tarjetas de la pizarra */
+  --heading-s-line: 24px;
+  --body-size: 16px;
+  --body-line: 24px;
+  --caption-size: 13px;
+  --caption-line: 18px;
+  --label-size: 12px;
+  --label-line: 16px;
+  --label-tracking: 0.08em;
+  --price-size: 18px;
+  --price-line: 24px;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+  --weight-display: 700; /* titulares pixelados */
+
+  /* ---------- Espaciado (sin pasos intermedios) ---------- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-4: 16px;
+  --space-8: 32px;
+
+  /* ---------- Radios ----------
+     En un mundo de bloques no hay curvas: todo es cuadrado. Los nombres se
+     conservan para que los componentes no cambien. */
+  --radius-none: 0;
+  --radius-md: 0;
+  --radius-pill: 0;
+  --radius-round: 0;
+
+  /* ---------- Bordes ---------- */
+  --border-width: 3px;
+  --border-hair: 1px;
+  --border: var(--border-width) solid var(--obsidian);
+  --border-thin: var(--border-hair) solid var(--obsidian);
+
+  /* ---------- Sombra (solo dura, nunca difuminada) ---------- */
+  --shadow-hard: 4px 4px 0 #1c1625;
+  --shadow-none: 0 0 0 transparent;
+  --bevel: inset 3px 3px 0 var(--bevel-light), inset -3px -3px 0 var(--bevel-dark);
+  --bevel-pressed: inset -3px -3px 0 var(--bevel-light), inset 3px 3px 0 var(--bevel-dark);
+  --press-offset: 2px; /* desplazamiento al pulsar un botón con sombra */
+
+  /* ---------- Foco ---------- */
+  --focus-width: 3px;
+  --focus-offset: 2px;
+  --focus-color: var(--diamond);
+
+  /* ---------- Patrón de marca: textura de bloque ---------- */
+  --checker-size: 16px; /* lado de un bloque en franjas */
+  --pixel: 4px; /* lado de un píxel de textura */
+
+  /* ---------- Layout ---------- */
+  --content-max: 1440px;
+  --gutter: var(--space-4); /* móvil */
+  --header-bar: 64px; /* fila de marca + CTA */
+  --header-nav-row: 44px; /* segunda fila de navegación en tablet */
+  --header-height: var(--header-bar);
+  --subnav-height: 56px;
+  /* Breakpoints. Las media queries no aceptan var(), así que son los únicos
+     números que se repiten literales en los @media:
+     < 768 móvil (hamburguesa) · < 1024 columna lateral abajo · < 1200 nav en dos filas */
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1200px;
+
+  /* ---------- Tamaños de componentes ---------- */
+  --board-card-width: 200px;
+  --flavor-card-width: 260px;
+  --video-card-width: 300px;
+  --story-card-width: 180px;
+  --play-size: 48px;
+  --avatar-size: 48px;
+  --icon-size: 24px;
+  --toggle-width: 52px;
+  --toggle-height: 30px;
+  --toggle-knob: 18px;
+  --hero-min-height: 480px;
+  --hero-art-size: 280px;
+  --profile-art-size: 220px;
+  --progress-height: 8px;
+  --sidebar-width: 320px;
+  --hit-min: 44px; /* área táctil mínima */
+  --cell-min: 112px; /* ancho mínimo de la primera columna fija */
+  --prose-max: 68ch;
+
+  /* ---------- Movimiento ---------- */
+  --duration-fast: 120ms;
+  --duration-base: 240ms;
+  --hero-interval: 6000ms;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* ---------- Capas ---------- */
+  --z-header: 50;
+  --z-drawer: 100;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --display-xl-size: 48px;
+    --display-l-size: 32px;
+    --display-l-line: 36px;
+    --display-s-size: 24px;
+    --display-s-line: 28px;
+    --hero-art-size: 180px;
+    --profile-art-size: 160px;
+    --hero-min-height: 0;
+    --board-card-width: 176px;
+    --flavor-card-width: 232px;
+    --video-card-width: 264px;
+    --story-card-width: 156px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: var(--space-8); /* escritorio */
+  }
+}
+
+/* Tablet: la navegación principal baja a una segunda fila */
+@media (min-width: 768px) and (max-width: 1199px) {
+  :root {
+    --header-height: calc(var(--header-bar) + var(--header-nav-row));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+  }
+}

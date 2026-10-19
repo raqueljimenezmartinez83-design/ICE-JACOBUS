@@ -1,0 +1,43 @@
+/* Portada: un destacado grande + tres laterales */
+.front {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: var(--space-8);
+  align-items: start;
+  padding-bottom: var(--space-8);
+  border-bottom: var(--border);
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.side > * + * {
+  padding-top: var(--space-4);
+  border-top: var(--border-thin);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8);
+}
+
+.aside {
+  padding-top: var(--space-8);
+}
+
+@media (max-width: 767px) {
+  .front,
+  .list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 1023px) {
+  .aside {
+    padding-top: var(--space-0);
+  }
+}

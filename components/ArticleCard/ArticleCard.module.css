@@ -1,0 +1,85 @@
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: calc(var(--space-8) * 4) 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.card[data-variant="lead"] {
+  grid-template-columns: minmax(0, 1fr);
+  background: var(--bone);
+  border: var(--border);
+  box-shadow: var(--shadow-hard);
+}
+
+.card:focus-within {
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+.thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border: var(--border);
+  overflow: hidden;
+}
+
+.card[data-variant="lead"] .thumb {
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-bottom: var(--border);
+}
+
+.art {
+  position: absolute;
+  inset: 12% 0 -4%;
+  display: flex;
+  justify-content: center;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.card[data-variant="lead"] .body {
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-4) var(--space-8);
+}
+
+.title {
+  color: var(--obsidian);
+}
+
+.link {
+  color: var(--obsidian);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: var(--border-width);
+  text-decoration-color: var(--grass);
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.link:focus-visible {
+  outline: none;
+}
+
+.dek {
+  max-width: var(--prose-max);
+}
+
+/* La ilustración se ajusta por altura para que nunca se corte */
+.art svg {
+  width: auto;
+  height: 100%;
+}

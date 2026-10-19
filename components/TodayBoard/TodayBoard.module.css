@@ -1,0 +1,88 @@
+.board {
+  background: var(--bone);
+  border-bottom: var(--border);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-4);
+  align-items: center;
+  padding-block: var(--space-2);
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-right: var(--space-4);
+  border-right: var(--border);
+}
+
+.all {
+  color: var(--obsidian);
+}
+
+.carousel {
+  min-width: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: var(--board-card-width);
+  padding: var(--space-2) var(--space-4);
+  background: var(--bone);
+  border: var(--border);
+  color: var(--obsidian);
+  text-decoration: none;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hard);
+}
+
+.status {
+  display: flex;
+}
+
+.name {
+  font-family: var(--font-sans);
+  font-size: var(--heading-s-size);
+  line-height: var(--heading-s-line);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--heading-tracking);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card[data-out="true"] .name {
+  text-decoration: line-through;
+  text-decoration-thickness: var(--border-width);
+  color: var(--stone-dark);
+}
+
+.card[data-out="true"] .price {
+  color: var(--stone-dark);
+}
+
+@media (max-width: 767px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2);
+  }
+
+  .head {
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--space-4);
+    padding-right: var(--space-0);
+    border-right: 0;
+  }
+
+  .all {
+    margin-left: auto;
+  }
+}

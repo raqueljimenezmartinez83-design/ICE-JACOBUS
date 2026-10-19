@@ -1,0 +1,41 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.wrap label {
+  cursor: pointer;
+}
+
+.switch {
+  position: relative;
+  flex: 0 0 auto;
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  padding: var(--space-0);
+  background: var(--bone);
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  transition: background var(--duration-fast) var(--ease);
+}
+
+.knob {
+  position: absolute;
+  top: 50%;
+  left: var(--space-1);
+  width: var(--toggle-knob);
+  height: var(--toggle-knob);
+  background: var(--obsidian);
+  border-radius: var(--radius-round);
+  transform: translateY(-50%);
+  transition: left var(--duration-fast) var(--ease);
+}
+
+.switch[aria-checked="true"] {
+  background: var(--diamond);
+}
+
+.switch[aria-checked="true"] .knob {
+  left: calc(100% - var(--toggle-knob) - var(--space-1));
+}

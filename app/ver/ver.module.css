@@ -1,0 +1,25 @@
+.featured {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: var(--space-8);
+  align-items: stretch;
+  padding-bottom: var(--space-8);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-8) var(--space-4);
+  background: var(--obsidian);
+  color: var(--bone);
+  border: var(--border);
+}
+
+@media (max-width: 1023px) {
+  .featured {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

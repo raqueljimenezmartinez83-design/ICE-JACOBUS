@@ -1,0 +1,102 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: var(--flavor-card-width);
+  height: 100%;
+  background: var(--card-bg, var(--leaf));
+  border: var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-hard);
+  overflow: hidden;
+  transition: transform var(--duration-fast) var(--ease);
+}
+
+.card:hover {
+  transform: translate(calc(-1 * var(--press-offset)), calc(-1 * var(--press-offset)));
+}
+
+.card:focus-within {
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-bottom: var(--border);
+  background: var(--bone);
+  overflow: hidden;
+}
+
+.photo img {
+  object-fit: cover;
+  transition: transform var(--duration-base) var(--ease);
+}
+
+.card:hover .photo img {
+  transform: scale(1.05);
+}
+
+/* Agotado: la foto pasa a blanco y negro */
+.card[data-out="true"] .photo img {
+  filter: grayscale(1);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  flex: 1;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.name {
+  margin-top: var(--space-1);
+}
+
+.link {
+  color: var(--obsidian);
+  text-decoration: none;
+}
+
+/* Toda la tarjeta es clicable */
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.link:focus-visible {
+  outline: none;
+}
+
+.short {
+  font-size: var(--caption-size);
+  line-height: var(--caption-line);
+  font-weight: var(--weight-medium);
+  flex: 1;
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-2);
+  border-top: var(--border-thin);
+}
+
+.card[data-out="true"] .name {
+  text-decoration: line-through;
+  text-decoration-thickness: var(--border-width);
+}
+
+.card[data-fluid="true"] {
+  width: 100%;
+}

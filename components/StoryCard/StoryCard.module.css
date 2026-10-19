@@ -1,0 +1,82 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: var(--story-card-width);
+  aspect-ratio: 9 / 16;
+  background: var(--story-bg);
+  border: var(--border);
+  box-shadow: var(--shadow-hard);
+  overflow: hidden;
+  transition: transform var(--duration-fast) var(--ease);
+}
+
+.card:hover {
+  transform: translate(calc(-1 * var(--press-offset)), calc(-1 * var(--press-offset)));
+}
+
+.card:focus-within {
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+.sticker {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: 1;
+}
+
+.art {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4) var(--space-4);
+}
+
+.art svg {
+  width: 70%;
+}
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-4) var(--space-4);
+  background: var(--obsidian);
+  color: var(--bone);
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+  font-weight: var(--weight-bold);
+}
+
+.link {
+  color: var(--bone);
+  text-decoration: none;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.link:focus-visible {
+  outline: none;
+}
+
+/* Con foto: ocupa todo el hueco sobre el pie ink */
+.art[data-photo] {
+  position: relative;
+  padding: var(--space-0);
+}
+
+.img {
+  object-fit: cover;
+}

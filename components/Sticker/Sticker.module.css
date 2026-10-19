@@ -1,0 +1,31 @@
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: var(--label-size);
+  line-height: var(--label-line);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--obsidian);
+  background: var(--bone);
+  box-shadow: var(--bevel);
+}
+
+.new { background: var(--gold); }
+/* Etiquetas informativas en bone: el color se reserva para el estado,
+   así una tarjeta de color no acumula tonos de más. */
+.vegan { background: var(--bone); }
+.gluten { background: var(--bone); }
+.low { background: var(--sand); }
+.season { background: var(--diamond); }
+.live { background: var(--redstone); color: var(--bone); }
+.plain { background: var(--bone); }
+/* Fondos oscuros: el texto pasa a bone (6,6:1 sobre stone-dark) */
+.out { background: var(--stone-dark); color: var(--bone); }
+.ink { background: var(--obsidian); color: var(--bone); }

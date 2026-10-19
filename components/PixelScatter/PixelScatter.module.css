@@ -1,0 +1,48 @@
+.layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.item {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  /* Sombra dura de bloque, sin desenfoque */
+  filter: drop-shadow(var(--press-offset) var(--press-offset) 0 var(--obsidian));
+  animation: float calc(var(--duration-base) * 12) var(--ease) infinite alternate;
+  animation-delay: calc(var(--duration-base) * var(--delay) * -1);
+}
+
+.s {
+  width: var(--space-8);
+}
+
+.m {
+  width: calc(var(--space-8) * 2);
+}
+
+.l {
+  width: calc(var(--space-8) * 3);
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(-1 * var(--space-2))); }
+}
+
+@media (max-width: 767px) {
+  .desktopOnly {
+    display: none;
+  }
+
+  .l {
+    width: calc(var(--space-8) * 2);
+  }
+
+  .m {
+    width: calc(var(--space-8) * 1.5);
+  }
+}

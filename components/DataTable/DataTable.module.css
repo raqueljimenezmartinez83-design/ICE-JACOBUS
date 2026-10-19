@@ -1,0 +1,176 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.scroller {
+  position: relative;
+  overflow-x: auto;
+  border: var(--border);
+  background: var(--bone);
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--caption-size);
+  line-height: var(--caption-line);
+}
+
+.th {
+  position: sticky;
+  top: 0;
+  background: var(--obsidian);
+  color: var(--bone);
+  font-family: var(--font-mono);
+  font-size: var(--label-size);
+  line-height: var(--label-line);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+  padding: var(--space-0);
+}
+
+.th.num {
+  text-align: right;
+}
+
+.sortBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  width: 100%;
+  min-height: var(--hit-min);
+  padding: var(--space-2);
+  background: transparent;
+  color: inherit;
+  border: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  justify-content: inherit;
+}
+
+.th.num .sortBtn {
+  justify-content: flex-end;
+}
+
+.sortBtn:focus-visible {
+  outline-offset: calc(-1 * var(--focus-width));
+}
+
+.arrow {
+  color: var(--bone);
+}
+
+/* Columna ordenada: lavanda con texto ink */
+.th.sorted {
+  background: var(--amethyst);
+  color: var(--obsidian);
+}
+
+.th.sorted .arrow {
+  color: var(--obsidian);
+}
+
+.table td,
+.rowHead {
+  padding: var(--space-2);
+  border-bottom: var(--border-thin);
+  white-space: nowrap;
+  vertical-align: middle;
+  background: var(--bone);
+}
+
+.rowHead {
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+  font-weight: var(--weight-bold);
+}
+
+.table td.num {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.table td.sorted,
+.rowHead.sorted {
+  background: var(--amethyst);
+}
+
+.table tbody tr:hover td,
+.table tbody tr:hover .rowHead {
+  background: var(--sand);
+}
+
+.table tbody tr:hover td.sorted,
+.table tbody tr:hover .rowHead.sorted {
+  background: var(--amethyst);
+}
+
+.sticky {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: var(--cell-min);
+  border-right: var(--border);
+}
+
+.th.sticky {
+  z-index: 2;
+}
+
+.empty {
+  padding: var(--space-8);
+  text-align: center;
+  font-size: var(--body-size);
+  white-space: normal;
+}
+
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.pageList {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.pageBtn,
+.pageNum {
+  min-height: var(--hit-min);
+  min-width: var(--hit-min);
+  padding: var(--space-1) var(--space-2);
+  background: var(--bone);
+  color: var(--obsidian);
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: var(--label-size);
+  line-height: var(--label-line);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+}
+
+.pageNum[aria-current="page"] {
+  background: var(--obsidian);
+  color: var(--bone);
+}
+
+.pageBtn:disabled {
+  color: var(--stone-dark);
+  border-color: var(--stone-dark);
+  cursor: not-allowed;
+}
